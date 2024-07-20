@@ -8,6 +8,9 @@ if [ "$TERM" = "linux" ]; then
   trap '' SIGQUIT
   trap '' SIGTSTP
 
+  # Sets the DE/wm
+  $environment=Hyprland
+
   # display message and pause
   pause() {
     local m="$@"
@@ -29,7 +32,7 @@ if [ "$TERM" = "linux" ]; then
     echo "(5) Enter the shell"
     read -r -p "Enter your choice [1-5] : " c
     case $c in
-    1) Hyprland ;;
+    1) $environment ;;
     2) read -r -p "What do you want to run : " com && $com ;;
     3) poweroff ;;
     4) read -r -p "What file do you want to edit : " edit && $EDITOR $edit ;;
