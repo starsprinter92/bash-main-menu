@@ -1,0 +1,39 @@
+#!/bin/bash
+# Purpose: Display various options to operator using menus
+# Author: Vivek Gite < vivek @ nixcraft . com > under GPL v2.0+
+# ---------------------------------------------------------------------------
+# capture CTRL+C, CTRL+Z and quit singles using the trap
+if [ "$TERM" = "linux" ]; then
+  trap '' SIGINT
+  trap '' SIGQUIT
+  trap '' SIGTSTP
+
+  # display message and pause
+  pause() {
+    local m="$@"
+    echo "$m"
+    read -p "Press [Enter] key to continue..." key
+  }
+
+  # set an
+  while :; do
+    clear
+    toilet -F border main menu --rainbow
+    echo
+    echo Enter an option:
+    echo
+    echo "(1) Start the GUI"
+    echo "(2) Run a command"
+    echo "(3) Shut down"
+    echo "(4) Edit a file"
+    echo "(5) Enter the shell"
+    read -r -p "Enter your choice [1-5] : " c
+    case $c in
+    1) Hyprland ;;
+    2) read -r -p "What do you want to run : " com && $com ;;
+    3) poweroff ;;
+    4) read -r -p "What file do you want to edit : " edit && $EDITOR $edit ;;
+    5) echo You will now be dropped into a shell && echo && break ;;
+    esac
+  done
+fi
