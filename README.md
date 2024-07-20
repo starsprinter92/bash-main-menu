@@ -6,9 +6,12 @@ main menu for a tty written in bash
 
 
 # INSTALLATION
+
 git clone https://github.com/starsprinter92/bash-main-menu/
 
 cd bash-main-menu
+
+$EDITOR mainmenu # change $environment to startx or your wayland compositor
 
 chmod +x mainmenu
 
