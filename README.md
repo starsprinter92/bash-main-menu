@@ -20,3 +20,13 @@ sudo mv mainmenu /bin
 
 
 put mainmenu in your *shrc!
+
+
+
+# DEPENDENCIES
+
+toilet
+
+Arch based distros: sudo pacman -S toilet
+
+Debian based distros: sudo apt install toilet
